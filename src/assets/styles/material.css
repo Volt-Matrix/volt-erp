@@ -1,0 +1,56 @@
+.head{
+    float: left;
+}
+.main-container{
+    display: grid;
+    grid-template-rows: repeat(8, 8.5vh);
+    grid-template-columns: repeat(16, 8.5vh);
+    grid-gap: 0.5em;
+    margin-top: 10px;
+}
+
+
+.chart{
+    grid-row: 1 / 5;
+    grid-column: 1 / 9;
+    background-color: #e5ded8;
+    border: 1px;
+    border-style: solid;
+    border-color: gray;
+    border-radius: 10px;
+    padding: 5px;
+    box-shadow: 4px 3px 10px rgba(0,0,0,0.2);
+}
+
+.chart-card {
+    grid-row: 1 / 5;
+    grid-column: 9 / -1;
+    background-color: #e5ded8;
+    border-radius: 15px;
+    border: 1px;
+    border-style: solid;
+}
+
+.cards {
+    grid-row: 5 / -2;
+    grid-column: 1 / -1;
+    background-color: #f3cfce;
+    border: 1px;
+    color: #cc0000;
+    border-style: solid;
+    border-color: gray;
+    border-radius: 10px;
+}
+
+
+.out-of-stock-card {
+    text-align:left;
+}
+
+h3, h4, h5 {
+    margin: 0;
+}
+
+li {
+    list-style-type: none;
+}
