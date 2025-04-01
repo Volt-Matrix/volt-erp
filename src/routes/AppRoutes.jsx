@@ -49,7 +49,7 @@ function AppRoutes() {
             <Route path="/work-progress" element={<WorkProgress />} />
             <Route
               path="/add-work-progress"
-              element={<AddWorkProgressForm />}
+              element={<AddWorkProgressFor />}
             />
             <Route
               path="/work-progress-table"
