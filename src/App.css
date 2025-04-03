@@ -46,7 +46,7 @@
   color: rgba(0, 0, 0, 0.4);
   text-decoration-line: underline;
 }
-/* .main-container {
+/* .main-container {  
   display: flex;
 } */
 .main-content {
@@ -54,7 +54,7 @@
   gap: 0.5em;
   width: 100%;
   padding: 0.5em;
-  max-height: 100%;
+  height: calc(100vh - 69px);
   flex-grow: 1;
   /* overflow-x: scroll; */
 }
