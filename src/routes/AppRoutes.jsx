@@ -1,5 +1,11 @@
-import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import React, { useEffect, useContext, useState } from "react";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  redirect,
+  useLocation,
+} from "react-router-dom";
 import Home from "../pages/Home";
 import Help from "../pages/Help";
 import Attendance from "../pages/Attendance";
@@ -26,7 +32,9 @@ import StockLevel from "../pages/StockLevel";
 import ClientLogo from "../components/ClientLogo";
 
 import StockLevelTemp from "../pages/SL-temp";
-
+import NavLayout from "../components/NavLayout/NavLayout";
+import LoginPage from "../pages/Login";
+import { AuthContext } from "../context/AuthContext";
 function AppRoutes() {
   return (
     <div>
@@ -59,6 +67,11 @@ function AppRoutes() {
             <Route path="/site-visits" element={<SiteVisits />} />
             <Route path="/equipment" element={<Equipment />} />
             <Route path="*" element={<NotFound />} />
+            <Route path="trail" element={<NavLayout />}>
+              <Route path="page1" element={<SiteVisits />} />
+              <Route path="page2" element={<Equipment />} />
+            </Route>
+            <Route path="login" element={<LoginPage />} />
           </Routes>
         </div>
       </div>
