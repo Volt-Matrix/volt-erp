@@ -35,6 +35,11 @@ import AddEmployee from "../pages/AddEmployee";
 import AddWorkProgressForm from "../pages/AddWorkProgressForm";
 import WorkProgressTable from "../pages/WorkProgressTable";
 import StockLevel from "../pages/StockLevel";
+import StockHistory from "../pages/StockHistory";
+import AddNewMaterial from "../pages/AddNewMaterial";
+import DailyMaterialUsage from "../pages/DailyMaterialUsage";
+import AddUsedStock from "../pages/AddUsedStock";
+
 
 import ClientLogo from "../components/ClientLogo";
 
@@ -59,6 +64,10 @@ function AppRoutes() {
             <Route path="/sales-targets" element={<SalesTargets />} />
             <Route path="/materials" element={<Materials />} />
             <Route path="/add-new-stock" element={<AddNewStock />} />
+            <Route path="/used-stock" element={<AddUsedStock />} />
+            <Route path="/add-new-material" element={<AddNewMaterial />} />
+            <Route path="/stock-history" element={<StockHistory />} />
+            <Route path="/daily-usage" element={<DailyMaterialUsage />} />
             <Route path="stock-level" element={<StockLevel />} />
             <Route path="stock-level-temp" element={<StockLevelTemp />} />
             <Route path="/work-progress" element={<WorkProgress />} />

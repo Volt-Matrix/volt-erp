@@ -4,12 +4,13 @@ import { useNavigate } from "react-router-dom";
 import "../assets/styles/SL-temp.css";
 import SubModuleBar from "../components/SubModuleBar";
 
+
 const moduleBarData = [
   {url: "/materials", text:"Overview"},
   {url: "/stock-level", text: "Stock Level"},
-  {url: "/add-new-stock", text: "Add New Stock"},
-  {url: "/daily-material-usage", text: "Daily Material Usage"},
-  {url: "/supplier-status", text: "Supplier Status"},
+  {url: "/add-new-stock", text: "Add New Stock/Supplier"},
+  {url: "/daily-usage", text: "Daily Material Usage"},
+  {url: "/stock-history", text: "Stock History"},
   {url: "/cost-analysis", text: "Cost Analysis"},
 ]
 
@@ -60,9 +61,10 @@ const StockLevelTemp = () => {
   return (
     <div>
       
-    <SubModuleBar moduleData={moduleBarData} />
+    
 
     <div className="container">
+    <SubModuleBar moduleData={moduleBarData} />
  
       <h4 className="name">Stock Analysis by Project</h4>
       <label className="labs">Select Project ID: </label>

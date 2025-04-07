@@ -1,0 +1,71 @@
+.usedstock-container {
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: #f4f4f4;
+  }
+  
+  .usedstock-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 15px;
+  }
+  
+  .usedstock-form-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .usedstock-form-section {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .usedstock-dropdown12,
+.usedstock-dropdown {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+  
+  .usedstock-material-row {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .usedstock-add-more-btn, .usedstock-submit-btn {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    color: white;
+    margin-top: 10px;
+  }
+  
+  .usedstock-add-more-btn {
+    background: #28a745;
+  }
+  
+  .usedstock-submit-btn {
+    background: #007bff;
+  }
+  
+  .usedstock-popup-message {
+    margin-top: 15px;
+    padding: 10px;
+    background: #28a745;
+    color: white;
+    border-radius: 5px;
+    text-align: center;
+  }
+  
+    
