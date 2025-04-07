@@ -62,11 +62,11 @@ function SideBar() {
         icon={<MdAssessment />}
       />
       {/* <SideBarOption optionUrl="/site-visits" optionName="Site Visits"/> */}
-      <SideBarOption
+      {/* <SideBarOption
         optionUrl="/equipment"
         optionName="Equipment"
         icon={<MdLocalShipping />}
-      />
+      /> */}
       {/* <SideBarOption
         optionUrl="/trail"
         optionName="trail"
