@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import SubModuleBar from "../components/SubModuleBar";
-const moduleBarData = [
-  {url: "/attendance", text: "Overview"},
-  {url: "/leave-request", text: "Leave Request"},
-]
 
+const moduleBarData = [
+  {url: "/attendance", text: "Dashboard"},
+  {url: "/leave-request", text: "Leave Request"},
+  {url: "/Manager", text: "Manager"},
+  {url: "/Attenoverview", text: "Attendance Overview"},
+  {url:"/History", text: "History"}
+]
 
 const LeaveRequest = () => {
   const [formData, setFormData] = useState({
@@ -17,6 +20,17 @@ const LeaveRequest = () => {
     reason: "",
     reportTo: "",
   });
+
+  const [selectedMonth, setSelectedMonth] = useState("January");
+  const leaveHistory = [
+    { month: "January", employeeId: "EMP001", name: "John Doe", startDate: "2024-01-10", endDate: "2024-01-12", totalDays: 3, reason: "Fever" },
+    { month: "February", employeeId: "EMP002", name: "Jane Smith", startDate: "2024-02-03", endDate: "2024-02-05", totalDays: 3, reason: "Personal" },
+    { month: "January", employeeId: "EMP003", name: "Mark Twain", startDate: "2024-01-20", endDate: "2024-01-22", totalDays: 3, reason: "Travel" },
+    { month: "March", employeeId: "EMP004", name: "Lisa Ray", startDate: "2024-03-15", endDate: "2024-03-18", totalDays: 4, reason: "Family Function" },
+    { month: "February", employeeId: "EMP005", name: "Tom Hardy", startDate: "2024-02-20", endDate: "2024-02-21", totalDays: 2, reason: "Emergency" }
+  ];
+
+  const filteredHistory = leaveHistory.filter(entry => entry.month === selectedMonth);
  
   // Handle input change
   const handleChange = (e) => {
@@ -30,7 +44,6 @@ const LeaveRequest = () => {
     });
   };
  
-  // Calculate total leave days
   const calculateTotalDays = (start, end) => {
     if (start && end) {
       const startDate = new Date(start);
@@ -41,7 +54,6 @@ const LeaveRequest = () => {
     return 0;
   };
  
-  // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!formData.employeeId || !formData.name || !formData.startDate || !formData.endDate || !formData.reportTo) {
@@ -110,15 +122,7 @@ const LeaveRequest = () => {
               <label style={styles.label}>End Date:</label>
               <input type="date" name="endDate" value={formData.endDate} onChange={handleChange} style={styles.input} />
             </div>
-            {/* <div>
-              <label style={styles.label}>Report To:</label>
-              <select name="reportTo" value={formData.reportTo} onChange={handleChange} style={styles.input}>
-                <option value="">Select</option>
-                <option value="Supervisor">Supervisor</option>
-                <option value="Manager">Manager</option>
-                <option value="HR">HR</option>
-              </select>
-            </div> */}
+
             <div style={styles.labelSelector}>
               <label style={styles.label}>Total Days:</label>
               <input type="number" name="totalDays" value={formData.totalDays} readOnly style={styles.input} />
@@ -133,20 +137,47 @@ const LeaveRequest = () => {
           <button type="submit" style={styles.button}><p style={{fontWeight:"bold", color:"black", margin: "0"}}>Submit</p></button>
         </form>
       </div>
+
+      <div style={{ ...styles.container, marginTop: "30px" }}>
+        <h2 style={styles.heading}>Leave History</h2>
+        <div style={{ textAlign: "left", marginBottom: "10px" }}>
+          <label style={styles.label}>Filter by Month: </label>
+          <select value={selectedMonth} onChange={(e) => setSelectedMonth(e.target.value)} style={styles.input}>
+            <option value="January">January</option>
+            <option value="February">February</option>
+            <option value="March">March</option>
+          </select>
+        </div>
+        <table style={{ width: "100%", borderCollapse: "collapse" }}>
+          <thead>
+            <tr style={{ backgroundColor: "#CFE1F0" }}>
+              <th style={styles.th}>Employee ID</th>
+              <th style={styles.th}>Name</th>
+              <th style={styles.th}>Start Date</th>
+              <th style={styles.th}>End Date</th>
+              <th style={styles.th}>Total Days</th>
+              <th style={styles.th}>Reason</th>
+            </tr>
+          </thead>
+          <tbody>
+            {filteredHistory.map((entry, index) => (
+              <tr key={index}>
+                <td style={styles.td}>{entry.employeeId}</td>
+                <td style={styles.td}>{entry.name}</td>
+                <td style={styles.td}>{entry.startDate}</td>
+                <td style={styles.td}>{entry.endDate}</td>
+                <td style={styles.td}>{entry.totalDays}</td>
+                <td style={styles.td}>{entry.reason}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 };
 
-// Centered page styles
 const styles = {
-  // page: {
-  //   display: "flex",
-  //   flexDirection: "column",
-  //   justifyContent: "center",
-  //   alignItems: "center",
-  //   width: "80vw",
-  //   backgroundColor: "#f4f6f9",
-  // },
   container: {
     width: "850px",
     padding: "30px",
@@ -211,7 +242,18 @@ const styles = {
     justifyContent: "flex-start",
     alignItems: "baseline",
     gap: "20px"
+  },
+  th: {
+    border: "1px solid #ddd",
+    padding: "10px",
+    backgroundColor: "#f0f8ff",
+    color: "#333",
+  },
+  td: {
+    border: "1px solid #ddd",
+    padding: "10px",
+    textAlign: "center",
   }
 };
- 
+
 export default LeaveRequest;

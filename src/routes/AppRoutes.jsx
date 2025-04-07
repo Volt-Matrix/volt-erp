@@ -20,6 +20,13 @@ import SiteVisits from "../pages/SiteVisits";
 import WorkProgress from "../pages/WorkProgress";
 import WorkUpdates from "../pages/WorkUpdates";
 
+import History from "../pages/History";
+import Aoverview from "../pages/Aoverview";
+import Manager from "../pages/Manager";
+import Mpage from "../pages/Mpage";
+import Moverview from "../pages/Moverview";
+import Biodetail from "../pages/Biodetail";
+
 import CurrentTime from "../components/CurrentTime";
 import LabourManagement from "../pages/LabourManagement";
 import LeaveRequest from "../pages/LeaveRequest";
@@ -72,6 +79,13 @@ function AppRoutes() {
               <Route path="page2" element={<Equipment />} />
             </Route> */}
             <Route path="login" element={<LoginPage />} />
+
+            <Route path="History" element={<History />} />
+            <Route path="Aoverview" element={<Aoverview />} />
+            <Route path="Manager" element={<Manager />} />
+            <Route path="Mpage" element={<Mpage />} />
+            <Route path="Moverview" element={<Moverview />} />
+            <Route path="Biodetail" element={<Biodetail />} />
           </Routes>
         </div>
       </div>

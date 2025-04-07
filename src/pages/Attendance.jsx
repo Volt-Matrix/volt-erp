@@ -9,8 +9,11 @@ import {
 import SubModuleBar from "../components/SubModuleBar";
 
 const moduleBarData = [
-  {url: "/attendance", text: "Overview"},
+  {url: "/attendance", text: "Dashboard"},
   {url: "/leave-request", text: "Leave Request"},
+  {url: "/Manager", text: "Manager"},
+  {url: "/Aoverview", text: "Attendance Overview"},
+  {url:"/History", text: "History"}
 ]
 
 const data = [
