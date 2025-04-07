@@ -67,7 +67,7 @@ function SideBar() {
         optionName="Equipment"
         icon={<MdLocalShipping />}
       />
-      <SideBarOption
+      {/* <SideBarOption
         optionUrl="/trail"
         optionName="trail"
         icon={<MdLocalShipping />}
@@ -81,7 +81,7 @@ function SideBar() {
         optionUrl="/trail/page2"
         optionName="trail2"
         icon={<MdLocalShipping />}
-      />
+      /> */}
       <SideBarOption optionUrl="/help" optionName="Help" icon={<MdHelp />} />
     </div>
   );
