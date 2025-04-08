@@ -111,6 +111,17 @@
     border-radius: 10px 0 0 10px;
     transition: width 0.3s ease;
   }
+  .progress-red {
+    background-color: #dc2626;
+  }
+  
+  .progress-orange {
+    background-color: #f97316;
+  }
+  
+  .progress-green {
+    background-color: #16a34a;
+  }
    
   .progress-text {
     font-size: 0.875rem;
