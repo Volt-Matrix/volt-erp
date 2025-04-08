@@ -15,10 +15,31 @@ import {
 
 import SubModuleBar from "../components/SubModuleBar";
 
+const CustomTooltip = ({ active, payload, label }) => {
+  if (active && payload && payload.length) {
+    return (
+      <div className="custom-tooltip">
+        <p className="tooltip-label"><strong>Project:</strong> {label}</p>
+        <ul className="tooltip-list">
+          {payload.map((entry, index) => (
+            <li key={index} style={{ color: entry.color }}>
+              {entry.name}: {entry.value}%
+            </li>
+          ))}
+        </ul>
+      </div>
+    );
+  }
+  return null;
+};
+
 const moduleBarData = [
   {url: "/work-progress", text: "Overview"},
-  {url: "/add-work-progress", text: "Update Work Progress"},
-  {url: "/work-progress-table", text: "View Full Work Progress Report Table →"}
+  {url: "/add-task", text: "Add Task"},
+  {url: "/task-list", text: "Update Work Progress"},
+  {url:"/contractor-form", text: "Contractor"},
+  {url: "/work-progress-table", text: "View Full Work Progress Report Table"},
+  {url:"/contractor-progresstable", text:"Contractor Progress Table"}
 ]
 
 
@@ -31,7 +52,7 @@ export default function WorkProgress() {
   useEffect(() => {
     const fetchExcelData = async () => {
       try {
-        const response = await fetch("/data/work_progress_no_report_id.xlsx");
+        const response = await fetch("/data/work_progress_main.xlsx");
         const arrayBuffer = await response.arrayBuffer();
         const workbook = XLSX.read(arrayBuffer, { type: "array" });
         const worksheet = workbook.Sheets[workbook.SheetNames[0]];
@@ -46,7 +67,7 @@ export default function WorkProgress() {
  
         jsonData.forEach((row) => {
           const projectId = row.Project_ID;
-          const workType = row.Work_Completed;
+          const workType = row["Category "];
           const progress = parseFloat(row.Progress_Percentage) || 0;
  
           if (!topProjects.includes(projectId)) return;
@@ -76,6 +97,11 @@ export default function WorkProgress() {
     selectedProject === "All Projects"
       ? excelData
       : excelData.filter((r) => r.Project_ID === selectedProject);
+     const getProgressColor = (percentage) => {
+        if (percentage <= 20) return "progress-red";
+        if (percentage <= 60) return "progress-orange";
+      return "progress-green"; 
+     };
  
   return (
     <div>
@@ -108,15 +134,17 @@ export default function WorkProgress() {
           <p className="progress-label">
             {report.Project_ID} - {report.Work_Completed}
           </p>
-          <div className="progress-bar-bg">
-            <div
-              className="progress-bar-fill"
-              style={{ width: `${report.Progress_Percentage}%` }}
-            ></div>
-          </div>
-          <p className="progress-text">
-            {report.Progress_Percentage}% completed
-          </p>
+          <div className="progress-inline">
+                  <div className="progress-bar-bg">
+                    <div
+                      className={`progress-bar-fill ${getProgressColor(report.Progress_Percentage)}`}
+                      style={{ width: `${report.Progress_Percentage}%` }}
+                    ></div>
+                  </div>
+                  <span className="progress-text-right">
+                    {report.Progress_Percentage}%
+                  </span>
+                </div>
         </div>
       ))
     ) : (
@@ -134,7 +162,7 @@ export default function WorkProgress() {
         <CartesianGrid strokeDasharray="3 3" />
         <XAxis dataKey="project" angle={-45} fontSize={10} interval={0} dy={10}/>
         <YAxis />
-        <Tooltip />
+        <Tooltip content={<CustomTooltip />} cursor={{ fill: "none" }} />
         <Legend />
         {workTypes.map((type, index) => (
           <Bar

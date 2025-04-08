@@ -26,8 +26,11 @@ import LabourManagement from "../pages/LabourManagement";
 import LeaveRequest from "../pages/LeaveRequest";
 import AddNewStock from "../pages/AddNewStock";
 import AddEmployee from "../pages/AddEmployee";
-import AddWorkProgressForm from "../pages/AddWorkProgressForm";
+import AddTask from "../pages/AddTask";
+import TaskList from "../pages/TaskList";
+import ContractorForm from "../pages/ContractorForm"
 import WorkProgressTable from "../pages/WorkProgressTable";
+import ContractorWorkProgressTable from "../pages/ContractorWorkProgressTable";
 import StockLevel from "../pages/StockLevel";
 import StockHistory from "../pages/StockHistory";
 import AddNewMaterial from "../pages/AddNewMaterial";
@@ -40,6 +43,7 @@ import StockLevelTemp from "../pages/SL-temp";
 import NavLayout from "../components/NavLayout/NavLayout";
 import LoginPage from "../pages/Login";
 import { AuthContext } from "../context/AuthContext";
+import Contractor from "../pages/ContractorForm";
 function AppRoutes() {
   return (
     <div>
@@ -65,12 +69,19 @@ function AppRoutes() {
             <Route path="stock-level-temp" element={<StockLevelTemp />} />
             <Route path="/work-progress" element={<WorkProgress />} />
             <Route
-              path="/add-work-progress"
-              element={<AddWorkProgressForm />}
+              path="/add-task"
+              element={<AddTask />}
             />
+             <Route path="/task-list" element={<TaskList />} />
+             <Route path="/contractor-form" element={<ContractorForm />} />
+
             <Route
               path="/work-progress-table"
               element={<WorkProgressTable />}
+            />
+            <Route
+              path="/contractor-progresstable"
+              element={<ContractorWorkProgressTable />}
             />
             <Route path="/work-updates" element={<WorkUpdates />} />
             <Route path="/site-visits" element={<SiteVisits />} />

@@ -1,0 +1,239 @@
+.dashboard-container2 {
+    max-width: 1000px;
+    margin: 30px auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  .las2{
+    display: flex;
+    margin-left: 430px;
+  }
+  .btnn2{
+    margin-left: -450px;
+  }
+  .dashboard-title2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    margin-left: 250px;
+    
+  }
+  
+  .filter-section2 {
+    margin-bottom: 20px;
+  }
+  
+  .filter-label2 {
+    font-weight: 600;
+    margin-left: 27rem;
+  }
+  
+  .dropdown2 {
+    padding: 6px 10px;
+    font-size: 14px;
+    width: 150px;
+  }
+  
+  
+  
+  
+  .task-grid2 {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    padding-top: 15px;
+  }
+  
+  
+  .task-card2 {
+    width: 48%;
+    background-color: #fff;
+    border-left: 6px solid #ccc;
+    padding: 14px;
+    box-sizing: border-box;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    transition: 0.2s ease-in-out;
+  }
+  
+  
+  .task-card2.foundation { border-color: #4b5563; background: #f9fafb; }
+  .task-card2.finishing  { border-color: #16a34a; background: #ecfdf5; }
+  .task-card2.plumbing   { border-color: #2563eb; background: #eff6ff; }
+  .task-card2.structure  { border-color: #d97706; background: #fff7ed; }
+  .task-card2.roofing    { border-color: #be185d; background: #fdf2f8; }
+  
+  .task-project2 {
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 4px;
+    color: #666;
+  }
+  
+  .task-category2 {
+    font-size: 13px;
+    font-weight: 600;
+    color: #111;
+    margin-bottom: 6px;
+    text-transform: capitalize;
+  }
+  
+  .task-desc2 {
+    font-size: 14px;
+    color: #222;
+  }
+  
+  @media (max-width: 768px) {
+    .task-card2 {
+      width: 100%;
+    }
+  }
+  
+  .modal-overlay2 {
+    position: fixed;
+    top: 20vh;
+    left: 40vw;
+    width: 30vw;
+    height: 500px;
+    z-index: 999; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .edit-form2 {
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 16px 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    font-size: 13px;
+    animation: fadeSlideUp 0.3s ease-out;
+  }
+  
+  .form-grid2 {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .form-group2 {
+    flex: 1 1 45%;
+    display: flex;
+    flex-direction: column;
+
+  }
+  
+  .edit-form2 label {
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  
+  .edit-form2 input,
+  .edit-form2 textarea {
+    font-size: 12px;
+    padding: 6px 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .edit-form2 textarea {
+    height: 32px;
+    resize: none;
+  }
+  
+  .form-buttons2 {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    justify-content: center;
+  }
+  
+  .close-btn2 {
+    position: absolute;
+    right: 12px;
+    top: 10px;
+    font-size: 18px;
+    background: none;
+    border: none;
+    color: #888;
+    cursor: pointer;
+  }
+  
+   /* @keyframes fadeSlideUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }  */
+  .button2{
+    padding: 10%;
+  }
+ /* .floating2{
+    position: relative;
+    margin-bottom: 20px;
+  } */
+  /* .floating2 input,
+.floating2 textarea {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  width: 100%;
+  height:10px;
+  margin-top: 40px;
+  box-sizing: border-box;
+} 
+ 
+ .floating2 label {
+  position: absolute;
+  left: 12px;
+  color: #888;
+  transition: 0.3s ease all;
+  pointer-events: none;
+}
+ 
+
+.floating2 input:focus + label,
+.floating2 input:not(:placeholder-shown) + label,
+.floating2 textarea:focus + label,
+.floating2 textarea:not(:placeholder-shown) + label {
+  top: -10px;
+  left: 8px;
+  font-size: 12px;
+  color: #44484b;
+}
+  */ 
+
+textarea {
+  resize: none;
+  min-height: 50px;
+  overflow-y: hidden;
+} 
+.buttonn2{
+  padding: 0.6em 1.2em ;
+  margin-top: 20px;
+  height: fit-content;
+}
+.form-group2 {
+  flex: 1 1 45%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+.sub-btn1{
+  background-color: #2563eb;
+  margin-top: 15px;
+}
+.sub-btn2{
+  background-color: rgb(236, 195, 180);
+}
+
