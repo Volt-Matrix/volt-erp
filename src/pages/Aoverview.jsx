@@ -4,12 +4,12 @@ import "react-calendar/dist/Calendar.css";
 import "../assets/styles/aoverview.css";
 
 const moduleBarData = [
-  {url: "/attendance", text: "Dashboard"},
-  {url: "/leave-request", text: "Leave Request"},
-  {url: "/Manager", text: "Manager"},
-  {url: "/Attenoverview", text: "Attendance Overview"},
-  {url:"/History", text: "History"}
-]
+  { url: "/attendance", text: "Dashboard" },
+  { url: "/leave-request", text: "Leave Request" },
+  { url: "/Manager", text: "Manager" },
+  { url: "/Attenoverview", text: "Attendance Overview" },
+  { url: "/History", text: "History" },
+];
 const holidays = [
   { name: "New Year's Day :", date: "2025-01-01" },
   { name: "Republic Day", date: "2025-01-26" },
@@ -24,7 +24,7 @@ const holidays = [
   { name: "Mahatma Gandhi Jayanti", date: "2025-10-02" },
   { name: "Dussehra (Vijaya Dashami)", date: "2025-10-20" },
   { name: "Diwali (Deepavali)", date: "2025-10-21" },
-  { name: "Christmas Day", date: "2025-12-25" }
+  { name: "Christmas Day", date: "2025-12-25" },
 ];
 
 const formatDate = (date) => {
@@ -37,7 +37,7 @@ const employeeData = {
   sessions: [
     { checkIn: "08:45 AM", checkOut: "12:30 PM" },
     { checkIn: "01:15 PM", checkOut: "03:30 PM" },
-    { checkIn: "03:45 PM", checkOut: "05:30 PM" }
+    { checkIn: "03:45 PM", checkOut: "05:30 PM" },
   ],
   totalTimeSpent: "8h 45m",
   faceRecognition: "Verified",
@@ -57,9 +57,15 @@ const Dashboard = () => {
           ))}
         </div>
         <div className="row">
-          <div className="bio time-spent">Total Time Spent: {employeeData.totalTimeSpent}</div>
-          <div className="bio face-recognition">Face Recognition: {employeeData.faceRecognition}</div>
-          <div className="bio thumb-verification">Thumb Verification: {employeeData.thumbVerification}</div>
+          <div className="bio time-spent">
+            Total Time Spent: {employeeData.totalTimeSpent}
+          </div>
+          <div className="bio face-recognition">
+            Face Recognition: {employeeData.faceRecognition}
+          </div>
+          <div className="bio thumb-verification">
+            Thumb Verification: {employeeData.thumbVerification}
+          </div>
         </div>
       </div>
     </div>
@@ -88,8 +94,10 @@ const App = () => {
           <div className="holiday-list">
             {holidays.map((h, index) => (
               <div key={index} className="holiday-card">
-                <div className="hol"><h4>{h.name}</h4>
-                <p className="dat">{h.date}</p></div>
+                <div className="hol">
+                  <h4>{h.name}</h4>
+                  <p className="dat">{h.date}</p>
+                </div>
               </div>
             ))}
           </div>

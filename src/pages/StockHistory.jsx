@@ -5,17 +5,14 @@ import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import SubModuleBar from "../components/SubModuleBar";
 
-
 const moduleBarData = [
-  {url: "/materials", text:"Overview"},
-  {url: "/stock-level", text: "Stock Level"},
-  {url: "/add-new-stock", text: "Add New Stock/Supplier"},
-  {url: "/daily-usage", text: "Daily Material Usage"},
-  {url: "/stock-history", text: "Stock History"},
-  {url: "/cost-analysis", text: "Cost Analysis"},
-]
-
-
+  { url: "/materials", text: "Overview" },
+  { url: "/stock-level", text: "Stock Level" },
+  { url: "/add-new-stock", text: "Add New Stock/Supplier" },
+  { url: "/daily-usage", text: "Daily Material Usage" },
+  { url: "/stock-history", text: "Stock History" },
+  { url: "/cost-analysis", text: "Cost Analysis" },
+];
 
 const DataTable = () => {
   const [data, setData] = useState([]);
@@ -24,17 +21,16 @@ const DataTable = () => {
     projectId: "",
     material: "",
     purchaseDate: "",
-    supplier: ""
+    supplier: "",
   });
   const [filteredData, setFilteredData] = useState([]);
   const [dropdownOptions, setDropdownOptions] = useState({
     projectId: [],
     material: [],
     purchaseDate: [],
-    supplier: []
+    supplier: [],
   });
   const [activeDropdown, setActiveDropdown] = useState(null);
-
 
   useEffect(() => {
     fetch("/data/project_materials_updated.xlsx")
@@ -44,14 +40,14 @@ const DataTable = () => {
         const sheetName = workbook.SheetNames[0];
         const sheet = workbook.Sheets[sheetName];
         const jsonData = XLSX.utils.sheet_to_json(sheet);
-        
+
         // Ensure Purchase_Date remains varied and properly formatted
-        const formattedData = jsonData.map(item => {
+        const formattedData = jsonData.map((item) => {
           let formattedDate = "";
           if (item.Purchase_Date) {
             const parsedDate = new Date(item.Purchase_Date);
             if (!isNaN(parsedDate)) {
-              formattedDate = parsedDate.toISOString().split('T')[0];
+              formattedDate = parsedDate.toISOString().split("T")[0];
             } else {
               formattedDate = item.Purchase_Date; // Keep original if parsing fails
             }
@@ -62,10 +58,14 @@ const DataTable = () => {
         setData(formattedData);
 
         setDropdownOptions({
-          projectId: [...new Set(formattedData.map(item => item.Project_ID.toString()))],
-          material: [...new Set(formattedData.map(item => item.Material))],
-          purchaseDate: [...new Set(formattedData.map(item => item.Purchase_Date))],
-          supplier: [...new Set(formattedData.map(item => item.Supplier))]
+          projectId: [
+            ...new Set(formattedData.map((item) => item.Project_ID.toString())),
+          ],
+          material: [...new Set(formattedData.map((item) => item.Material))],
+          purchaseDate: [
+            ...new Set(formattedData.map((item) => item.Purchase_Date)),
+          ],
+          supplier: [...new Set(formattedData.map((item) => item.Supplier))],
         });
       });
   }, []);
@@ -73,32 +73,41 @@ const DataTable = () => {
   useEffect(() => {
     let filteredMaterials = data;
     if (filters.projectId) {
-      filteredMaterials = filteredMaterials.filter(item => item.Project_ID.toString() === filters.projectId);
+      filteredMaterials = filteredMaterials.filter(
+        (item) => item.Project_ID.toString() === filters.projectId,
+      );
     }
 
-    setDropdownOptions(prevOptions => ({
+    setDropdownOptions((prevOptions) => ({
       ...prevOptions,
-      material: [...new Set(filteredMaterials.map(item => item.Material))],
-      purchaseDate: [...new Set(filteredMaterials.map(item => item.Purchase_Date))],
-      supplier: [...new Set(filteredMaterials.map(item => item.Supplier))]
+      material: [...new Set(filteredMaterials.map((item) => item.Material))],
+      purchaseDate: [
+        ...new Set(filteredMaterials.map((item) => item.Purchase_Date)),
+      ],
+      supplier: [...new Set(filteredMaterials.map((item) => item.Supplier))],
     }));
   }, [filters.projectId, data]);
 
   const handleSelect = (key, value) => {
     setFilters((prevFilters) => ({
       ...prevFilters,
-      [key]: value
+      [key]: value,
     }));
     setActiveDropdown(null);
   };
 
   useEffect(() => {
     if (filters.projectId) {
-      const newFilteredData = data.filter((item) =>
-        (filters.projectId ? item.Project_ID.toString() === filters.projectId : true) &&
-        (filters.material ? item.Material === filters.material : true) &&
-        (filters.purchaseDate ? item.Purchase_Date === filters.purchaseDate : true) &&
-        (filters.supplier ? item.Supplier === filters.supplier : true)
+      const newFilteredData = data.filter(
+        (item) =>
+          (filters.projectId
+            ? item.Project_ID.toString() === filters.projectId
+            : true) &&
+          (filters.material ? item.Material === filters.material : true) &&
+          (filters.purchaseDate
+            ? item.Purchase_Date === filters.purchaseDate
+            : true) &&
+          (filters.supplier ? item.Supplier === filters.supplier : true),
       );
       setFilteredData(newFilteredData);
     } else {
@@ -114,22 +123,29 @@ const DataTable = () => {
 
   return (
     <div className="stock-container">
-              <SubModuleBar moduleData={moduleBarData} />
+      <SubModuleBar moduleData={moduleBarData} />
       <h2>Stock History</h2>
       <div className="search-bar">
         {Object.keys(filters).map((key) => (
           <div key={key} className="search-input-container">
             <input
               type="text"
-              placeholder={`Search ${key.replace(/([A-Z])/g, ' $1').trim()}`}
+              placeholder={`Search ${key.replace(/([A-Z])/g, " $1").trim()}`}
               value={filters[key]}
-              onChange={(e) => setFilters({ ...filters, [key]: e.target.value })}
+              onChange={(e) =>
+                setFilters({ ...filters, [key]: e.target.value })
+              }
               onFocus={() => setActiveDropdown(key)}
             />
             {activeDropdown === key && dropdownOptions[key] && (
               <div className="dropdown">
                 {dropdownOptions[key]
-                  .filter(option => option.toString().toLowerCase().includes(filters[key].toLowerCase()))
+                  .filter((option) =>
+                    option
+                      .toString()
+                      .toLowerCase()
+                      .includes(filters[key].toLowerCase()),
+                  )
                   .map((option, index) => (
                     <div
                       key={index}
@@ -143,7 +159,9 @@ const DataTable = () => {
             )}
           </div>
         ))}
-        <button className="clear-button" onClick={clearFilters}>Clear</button>
+        <button className="clear-button" onClick={clearFilters}>
+          Clear
+        </button>
       </div>
       {filters.projectId && (
         <table className="data-table">
@@ -171,7 +189,9 @@ const DataTable = () => {
               ))
             ) : (
               <tr>
-                <td colSpan="6" style={{ textAlign: "center" }}>No matching data found</td>
+                <td colSpan="6" style={{ textAlign: "center" }}>
+                  No matching data found
+                </td>
               </tr>
             )}
           </tbody>

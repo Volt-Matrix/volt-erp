@@ -2,56 +2,56 @@ import React, { useState } from "react";
 import "../assets/styles/Biodetail.css";
 
 const moduleBarData = [
-    {url: "/attendance", text: "Dashboard"},
-    {url: "/leave-request", text: "Leave Request"},
-    {url: "/Manager", text: "Manager"},
-    {url: "/Attenoverview", text: "Attendance Overview"},
-    {url:"/History", text: "History"}
-  ]
+  { url: "/attendance", text: "Dashboard" },
+  { url: "/leave-request", text: "Leave Request" },
+  { url: "/Manager", text: "Manager" },
+  { url: "/Attenoverview", text: "Attendance Overview" },
+  { url: "/History", text: "History" },
+];
 
 const EmployeeLeaveDetails = () => {
   const employees = [
-    { 
-      id: "E001", 
-      name: "Alice", 
-      leavesUsed: 5, 
-      leavesBalance: 5, 
-      halfDaysUsed: 2, 
+    {
+      id: "E001",
+      name: "Alice",
+      leavesUsed: 5,
+      leavesBalance: 5,
+      halfDaysUsed: 2,
       biometricDetails: [
         { date: "2023-03-01", checkIn: "09:00 AM", checkOut: "06:00 PM" },
         { date: "2023-03-02", checkIn: "09:15 AM", checkOut: "06:15 PM" },
         { date: "2023-03-03", checkIn: "09:05 AM", checkOut: "06:05 PM" },
         { date: "2023-03-04", checkIn: "09:30 AM", checkOut: "06:00 PM" },
-        { date: "2023-03-05", checkIn: "09:00 AM", checkOut: "06:10 PM" }
-      ] 
+        { date: "2023-03-05", checkIn: "09:00 AM", checkOut: "06:10 PM" },
+      ],
     },
-    { 
-      id: "E002", 
-      name: "Bob", 
-      leavesUsed: 7, 
-      leavesBalance: 3, 
-      halfDaysUsed: 1, 
+    {
+      id: "E002",
+      name: "Bob",
+      leavesUsed: 7,
+      leavesBalance: 3,
+      halfDaysUsed: 1,
       biometricDetails: [
         { date: "2023-03-01", checkIn: "09:00 AM", checkOut: "06:00 PM" },
         { date: "2023-03-02", checkIn: "09:05 AM", checkOut: "06:05 PM" },
         { date: "2023-03-03", checkIn: "09:10 AM", checkOut: "06:00 PM" },
         { date: "2023-03-04", checkIn: "09:15 AM", checkOut: "06:20 PM" },
-        { date: "2023-03-05", checkIn: "09:20 AM", checkOut: "06:15 PM" }
-      ]
+        { date: "2023-03-05", checkIn: "09:20 AM", checkOut: "06:15 PM" },
+      ],
     },
-    { 
-      id: "E003", 
-      name: "Charlie", 
-      leavesUsed: 4, 
-      leavesBalance: 6, 
-      halfDaysUsed: 0, 
+    {
+      id: "E003",
+      name: "Charlie",
+      leavesUsed: 4,
+      leavesBalance: 6,
+      halfDaysUsed: 0,
       biometricDetails: [
         { date: "2023-03-01", checkIn: "09:00 AM", checkOut: "06:00 PM" },
         { date: "2023-03-02", checkIn: "09:10 AM", checkOut: "06:10 PM" },
         { date: "2023-03-03", checkIn: "09:05 AM", checkOut: "06:00 PM" },
         { date: "2023-03-04", checkIn: "09:00 AM", checkOut: "06:00 PM" },
-        { date: "2023-03-05", checkIn: "09:20 AM", checkOut: "06:00 PM" }
-      ]
+        { date: "2023-03-05", checkIn: "09:20 AM", checkOut: "06:00 PM" },
+      ],
     },
   ];
 
@@ -70,7 +70,7 @@ const EmployeeLeaveDetails = () => {
           <option value="">Select Employee</option>
           {employees.map((employee) => (
             <option key={employee.id} value={employee.id}>
-              {employee.id} 
+              {employee.id}
             </option>
           ))}
         </select>
@@ -80,9 +80,15 @@ const EmployeeLeaveDetails = () => {
         <div className="employee-details">
           <h3>{selectedEmployee.name} </h3>
           <ul>
-            <li><strong>Leaves Used:</strong> {selectedEmployee.leavesUsed}</li>
-            <li><strong>Leaves Balance:</strong> {selectedEmployee.leavesBalance}</li>
-            <li><strong>Half Days Used:</strong> {selectedEmployee.halfDaysUsed}</li>
+            <li>
+              <strong>Leaves Used:</strong> {selectedEmployee.leavesUsed}
+            </li>
+            <li>
+              <strong>Leaves Balance:</strong> {selectedEmployee.leavesBalance}
+            </li>
+            <li>
+              <strong>Half Days Used:</strong> {selectedEmployee.halfDaysUsed}
+            </li>
           </ul>
 
           {/* Biometric Details Table */}

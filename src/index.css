@@ -13,16 +13,9 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* 
 body {
-  margin: 0;
-  padding: 10px;
-  margin-top: 60px;
-  margin-left: 185px;
-  width: 80vw;
-  min-height: 100vh;
-  overflow-x: hidden;;
-} */
+  height: 100vh;
+}
 
 html {
   background-color: #e78433;
@@ -48,10 +41,7 @@ button:focus-visible {
 }
 
 /* @media (prefers-color-scheme: light) { */
-:root {
-  color: #213547;
-  background-color: #deedda; /* #d8eff4 */ /* caf0f8 */
-}
+
 a:hover {
   color: #747bff;
 }

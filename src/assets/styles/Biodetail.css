@@ -1,78 +1,77 @@
 .employee-leave-details {
-    font-family: Arial, sans-serif;
-    margin: 20px;
-  }
-  
-  .employee-filter {
-    margin-bottom: 20px;
-  }
-  
-  .employee-filter h2 {
-    font-size: 20px;
-    margin-bottom: 10px;
-  }
-  
-  .employee-filter select {
-    font-size: 16px;
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    width: 100%;
-    max-width: 300px;
-    display: block;
-  }
-  
-  .employee-details {
-    margin-top: 20px;
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    border: 1px solid #ddd;
-  }
-  
-  .employee-details h3 {
-    font-size: 22px;
-    margin-bottom: 20px;
-  }
-  
-  .employee-details ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  .employee-details ul li {
-    font-size: 16px;
-    margin-bottom: 10px;
-  }
-  
-  .employee-details ul li strong {
-    font-weight: bold;
-  }
-  
-  /* Biometric Table Styling */
-  .biometric-table-container {
-    margin-top: 20px;
-  }
-  
-  .biometric-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 10px;
-  }
-  
-  .biometric-table th,
-  .biometric-table td {
-    padding: 8px;
-    text-align: left;
-    border: 1px solid #ddd;
-  }
-  
-  .biometric-table th {
-    background-color: #15599d;
-    font-weight: bold;
-  }
-  
-  .biometric-table td {
-    font-size: 14px;
-  }
-  
+  font-family: Arial, sans-serif;
+  margin: 20px;
+}
+
+.employee-filter {
+  margin-bottom: 20px;
+}
+
+.employee-filter h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.employee-filter select {
+  font-size: 16px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  width: 100%;
+  max-width: 300px;
+  display: block;
+}
+
+.employee-details {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+.employee-details h3 {
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+
+.employee-details ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.employee-details ul li {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.employee-details ul li strong {
+  font-weight: bold;
+}
+
+/* Biometric Table Styling */
+.biometric-table-container {
+  margin-top: 20px;
+}
+
+.biometric-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.biometric-table th,
+.biometric-table td {
+  padding: 8px;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+
+.biometric-table th {
+  background-color: #15599d;
+  font-weight: bold;
+}
+
+.biometric-table td {
+  font-size: 14px;
+}

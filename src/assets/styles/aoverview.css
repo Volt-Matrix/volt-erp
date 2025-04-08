@@ -1,77 +1,76 @@
 /* Ensure Calendar and Upcoming Holidays are side by side */
 .content {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-  }
-  .hol{
-    display: flex;
-    justify-content: space-around;
-    text-align: center;
-    background-color:skyblue;
-    border-radius: 10px;
-  }
-  
-  .dat{
-    margin-top: 17px;
-  }
-  /* Card Styling */
-  .calcard {
-    background:#15599d;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    width: 400px;
-    height:400px;
-    /* overflow-x: scroll; */
-  }
-  
-  .Card1 {
-    background:orange;
-    padding: 10px;
-    border-radius: 8px;
-    margin-bottom: 10px;
-    width:350px;
-    height:50px;
-    text-align: center ;
-  }
-  
-  /* Scrollable Holiday List */
-  .holiday-list {
-    height: 320px;
-    overflow-y: auto;
-    padding-right: 10px;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
-  
-.react-calendar{
-    border-radius: 10px;
-    margin-left: 15px;
-    background-color:skyblue;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
 }
-  /* Individual holiday card - Made smaller */
-  .holiday-card {
-    background: #15599d;
-    padding: 5px;
-    border-radius: 6px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    font-size: 12px; /* Reduced font size */
-    width: 250px; /* Made smaller */
-    height:60px;
-    margin: auto; /* Center align */
+.hol {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  background-color: skyblue;
+  border-radius: 10px;
+}
 
-  }
-  
-  .bio{
-    width: 400px;
-    height: 150px;
-    background-color: #080808;
-  }
-  
-  /* .holiday-list::-webkit-scrollbar-thumb {
+.dat {
+  margin-top: 17px;
+}
+/* Card Styling */
+.calcard {
+  background: #15599d;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 400px;
+  height: 400px;
+  /* overflow-x: scroll; */
+}
+
+.Card1 {
+  background: orange;
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  width: 350px;
+  height: 50px;
+  text-align: center;
+}
+
+/* Scrollable Holiday List */
+.holiday-list {
+  height: 320px;
+  overflow-y: auto;
+  padding-right: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.react-calendar {
+  border-radius: 10px;
+  margin-left: 15px;
+  background-color: skyblue;
+}
+/* Individual holiday card - Made smaller */
+.holiday-card {
+  background: #15599d;
+  padding: 5px;
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  font-size: 12px; /* Reduced font size */
+  width: 250px; /* Made smaller */
+  height: 60px;
+  margin: auto; /* Center align */
+}
+
+.bio {
+  width: 400px;
+  height: 150px;
+  background-color: #080808;
+}
+
+/* .holiday-list::-webkit-scrollbar-thumb {
     background: #888;
     border-radius: 4px;
   } */
@@ -79,13 +78,12 @@
   text-align: center;
   /* font-family: Arial, sans-serif; */
   padding: 20px;
-  
 }
 
 .dashboard-title {
   margin-bottom: 20px;
   font-size: 24px;
-  flex:nowrap;
+  flex: nowrap;
 }
 
 .bio-container {
@@ -101,26 +99,24 @@
   width: 150px;
   text-align: center;
   font-weight: bold;
-} 
-.row{
-  display:flex;
+}
+.row {
+  display: flex;
   flex-direction: row;
   justify-content: center;
   gap: 10px;
 }
-
 
 .name {
   background: #aec6cf;
 }
 .bio-session {
   /* width:200px; */
-  background-color:skyblue;
+  background-color: skyblue;
   height: 80px;
   width: 400px;
   padding: 10px;
   border-radius: 10px;
-
 }
 .time-spent {
   background: darkgoldenrod;
@@ -129,13 +125,13 @@
   margin-top: 10px;
 }
 .face-recognition {
-  background:darkgoldenrod;
+  background: darkgoldenrod;
   height: 50px;
   width: 200px;
   margin-top: 10px;
 }
 .thumb-verification {
-  background:darkgoldenrod;
+  background: darkgoldenrod;
   height: 50px;
   width: 200px;
   margin-top: 10px;

@@ -4,12 +4,12 @@ import { useNavigate } from "react-router-dom"; // For navigation
 import "../assets/styles/history.css";
 
 const moduleBarData = [
-  {url: "/attendance", text: "Dashboard"},
-  {url: "/leave-request", text: "Leave Request"},
-  {url: "/Manager", text: "Manager"},
-  {url: "/Attenoverview", text: "Attendance Overview"},
-  {url:"/History", text: "History"}
-]
+  { url: "/attendance", text: "Dashboard" },
+  { url: "/leave-request", text: "Leave Request" },
+  { url: "/Manager", text: "Manager" },
+  { url: "/Attenoverview", text: "Attendance Overview" },
+  { url: "/History", text: "History" },
+];
 const BiometricDetails = () => {
   const [biometricData, setBiometricData] = useState([]);
   const [filter, setFilter] = useState("week1");
@@ -47,7 +47,9 @@ const BiometricDetails = () => {
   const getDay = (dateStr) => {
     if (!dateStr) return NaN;
     const parts = dateStr.split("-");
-    return parts.length === 3 ? parseInt(parts[0].length === 4 ? parts[2] : parts[0]) : NaN;
+    return parts.length === 3
+      ? parseInt(parts[0].length === 4 ? parts[2] : parts[0])
+      : NaN;
   };
 
   const filterData = () => {
@@ -81,7 +83,9 @@ const BiometricDetails = () => {
   return (
     <div className="biometric-container">
       {/* Back Button */}
-      <button className="back-buttons" onClick={() => navigate(-1)}>⬅ Back</button>
+      <button className="back-buttons" onClick={() => navigate(-1)}>
+        ⬅ Back
+      </button>
 
       <h2>Employee Biometric Details</h2>
 

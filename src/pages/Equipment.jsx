@@ -1,36 +1,50 @@
-import { useState } from 'react';
+import { useState } from "react";
 import "../assets/styles/Equipment.css";
 
-
 export default function App() {
-  const [data] = useState(Array.from({ length: 300 }, (_, i) => ({
-    "Equipment_ID": `EQP-${1001 + i}`,
-    "Name": ["Drill Machine", "Bulldozer", "Crane", "Concrete Mixer", "Excavator"][Math.floor(Math.random() * 5)],
-    "Project_ID": `PRJ-${1000 + Math.floor(Math.random() * 300)}`,
-    "Status": ["In Use", "Maintenance", "Idle"][Math.floor(Math.random() * 3)],
-    "Last_Inspection": "2025-03-16",
-    "Next_Maintenance": "2025-03-17",
-    "GPS_Location": `${10 + Math.random() * 20}, ${70 + Math.random() * 20}`,
-    "Operator": `Operator ${i + 1}`,
-    "Fuel_Consumption_L_per_hr": `${5 + Math.floor(Math.random() * 16)}`
-  })));
+  const [data] = useState(
+    Array.from({ length: 300 }, (_, i) => ({
+      Equipment_ID: `EQP-${1001 + i}`,
+      Name: [
+        "Drill Machine",
+        "Bulldozer",
+        "Crane",
+        "Concrete Mixer",
+        "Excavator",
+      ][Math.floor(Math.random() * 5)],
+      Project_ID: `PRJ-${1000 + Math.floor(Math.random() * 300)}`,
+      Status: ["In Use", "Maintenance", "Idle"][Math.floor(Math.random() * 3)],
+      Last_Inspection: "2025-03-16",
+      Next_Maintenance: "2025-03-17",
+      GPS_Location: `${10 + Math.random() * 20}, ${70 + Math.random() * 20}`,
+      Operator: `Operator ${i + 1}`,
+      Fuel_Consumption_L_per_hr: `${5 + Math.floor(Math.random() * 16)}`,
+    })),
+  );
 
   const [filters, setFilters] = useState({
-    status: 'all',
-    equipment: 'all'
+    status: "all",
+    equipment: "all",
   });
 
-  const filteredData = data.filter(item => {
-    return (filters.status === 'all' || item.Status === filters.status) &&
-           (filters.equipment === 'all' || item.Name === filters.equipment);
+  const filteredData = data.filter((item) => {
+    return (
+      (filters.status === "all" || item.Status === filters.status) &&
+      (filters.equipment === "all" || item.Name === filters.equipment)
+    );
   });
 
   const stats = {
     total: data.length,
-    inUse: data.filter(e => e.Status === 'In Use').length,
-    maintenance: data.filter(e => e.Status === 'Maintenance').length,
-    idle: data.filter(e => e.Status === 'Idle').length,
-    avgFuel: (data.reduce((acc, curr) => acc + parseFloat(curr.Fuel_Consumption_L_per_hr), 0) / data.length).toFixed(1)
+    inUse: data.filter((e) => e.Status === "In Use").length,
+    maintenance: data.filter((e) => e.Status === "Maintenance").length,
+    idle: data.filter((e) => e.Status === "Idle").length,
+    avgFuel: (
+      data.reduce(
+        (acc, curr) => acc + parseFloat(curr.Fuel_Consumption_L_per_hr),
+        0,
+      ) / data.length
+    ).toFixed(1),
   };
 
   return (
@@ -38,18 +52,20 @@ export default function App() {
       <header>
         <h1>Equipment Management</h1>
         <div className="filters">
-          <select 
-            value={filters.status} 
-            onChange={(e) => setFilters({...filters, status: e.target.value})}
+          <select
+            value={filters.status}
+            onChange={(e) => setFilters({ ...filters, status: e.target.value })}
           >
             <option value="all">All Status</option>
             <option value="In Use">In Use</option>
             <option value="Maintenance">Maintenance</option>
             <option value="Idle">Idle</option>
           </select>
-          <select 
-            value={filters.equipment} 
-            onChange={(e) => setFilters({...filters, equipment: e.target.value})}
+          <select
+            value={filters.equipment}
+            onChange={(e) =>
+              setFilters({ ...filters, equipment: e.target.value })
+            }
           >
             <option value="all">All Equipment</option>
             <option value="Drill Machine">Drill Machine</option>
@@ -96,12 +112,14 @@ export default function App() {
                 </tr>
               </thead>
               <tbody>
-                {filteredData.slice(0, 10).map(item => (
+                {filteredData.slice(0, 10).map((item) => (
                   <tr key={item.Equipment_ID}>
                     <td>{item.Equipment_ID}</td>
                     <td>{item.Name}</td>
                     <td>
-                      <span className={`status-badge ${item.Status.toLowerCase().replace(' ', '-')}`}>
+                      <span
+                        className={`status-badge ${item.Status.toLowerCase().replace(" ", "-")}`}
+                      >
                         {item.Status}
                       </span>
                     </td>
@@ -119,9 +137,9 @@ export default function App() {
           <h2>Maintenance Alerts</h2>
           <div className="alerts-container">
             {filteredData
-              .filter(item => item.Status === 'Maintenance')
+              .filter((item) => item.Status === "Maintenance")
               .slice(0, 5)
-              .map(item => (
+              .map((item) => (
                 <div key={item.Equipment_ID} className="alert-card">
                   <div className="alert-header">
                     <span className="alert-icon">⚠️</span>

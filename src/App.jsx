@@ -23,13 +23,13 @@ function App() {
   }, [logginIn]);
 
   return (
-    <div>
+    <>
       <AuthContext.Provider
         value={{ isLoginIn: logginIn, changeLogin: changeLogin }}
       >
         <AppRoutes />
       </AuthContext.Provider>
-    </div>
+    </>
   );
 }
 

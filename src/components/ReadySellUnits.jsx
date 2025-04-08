@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../assets/styles/ready-sell.css"
+import "../assets/styles/ready-sell.css";
 
 const ReadySellUnits = () => {
   const projectData = {
@@ -13,7 +13,14 @@ const ReadySellUnits = () => {
   return (
     <div className="ready-sell-box">
       <div className="ready-sell-title">
-        <p style={{ margin: "0", fontSize: "1em", paddingBottom: "7px", marginRight:"5px" }}>
+        <p
+          style={{
+            margin: "0",
+            fontSize: "1em",
+            paddingBottom: "7px",
+            marginRight: "5px",
+          }}
+        >
           Ready to sell units quantity:
         </p>
         <select
@@ -36,7 +43,8 @@ const ReadySellUnits = () => {
             <div key={bhk} className={className}>
               <p style={{ margin: "0", fontSize: "1em" }}>{bhk}</p>
               <p style={{ margin: "0" }}>
-                <span style={{ margin: "0", fontSize: "5em" }}>{count}</span> units
+                <span style={{ margin: "0", fontSize: "5em" }}>{count}</span>{" "}
+                units
               </p>
             </div>
           );

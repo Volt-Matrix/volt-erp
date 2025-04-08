@@ -5,16 +5,14 @@ import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import SubModuleBar from "../components/SubModuleBar";
 
-
 const moduleBarData = [
-  {url: "/materials", text:"Overview"},
-  {url: "/stock-level", text: "Stock Level"},
-  {url: "/add-new-stock", text: "Add New Stock/Supplier"},
-  {url: "/daily-usage", text: "Daily Material Usage"},
-  {url: "/stock-history", text: "Stock History"},
-  {url: "/cost-analysis", text: "Cost Analysis"},
-]
-
+  { url: "/materials", text: "Overview" },
+  { url: "/stock-level", text: "Stock Level" },
+  { url: "/add-new-stock", text: "Add New Stock/Supplier" },
+  { url: "/daily-usage", text: "Daily Material Usage" },
+  { url: "/stock-history", text: "Stock History" },
+  { url: "/cost-analysis", text: "Cost Analysis" },
+];
 
 const AddNewStock = () => {
   const [stock, setStock] = useState([]);
@@ -54,24 +52,29 @@ const AddNewStock = () => {
     (item) =>
       selectedProjectId &&
       item.Project_ID === selectedProjectId &&
-      (selectedSupplier ? item.Supplier === selectedSupplier : true)
+      (selectedSupplier ? item.Supplier === selectedSupplier : true),
   );
 
   return (
     <div className="stock-container">
-        
-        <SubModuleBar moduleData={moduleBarData} />
+      <SubModuleBar moduleData={moduleBarData} />
 
       <button className="used-btn" onClick={() => navigate("/used-stock")}>
         Add Used Stock
       </button>
-      <button className="new-material-btn" onClick={() => navigate("/add-new-material")}>
+      <button
+        className="new-material-btn"
+        onClick={() => navigate("/add-new-material")}
+      >
         Add New Material
       </button>
 
       <h2>Add New Stock/Supplier</h2>
       <div className="filters">
-        <select value={selectedProjectId} onChange={(e) => setSelectedProjectId(e.target.value)}>
+        <select
+          value={selectedProjectId}
+          onChange={(e) => setSelectedProjectId(e.target.value)}
+        >
           <option value="">Select Project ID</option>
           {[...new Set(stock.map((item) => item.Project_ID))].map((id) => (
             <option key={id} value={id}>
@@ -107,7 +110,9 @@ const AddNewStock = () => {
                   <td>
                     <select
                       value={editableStock[index] || item.Quantity}
-                      onChange={(e) => handleQuantityChange(index, e.target.value)}
+                      onChange={(e) =>
+                        handleQuantityChange(index, e.target.value)
+                      }
                     >
                       {[...Array(101).keys()].map((qty) => (
                         <option key={qty} value={qty}>
@@ -123,7 +128,15 @@ const AddNewStock = () => {
                       onChange={(e) => setSelectedSupplier(e.target.value)}
                     >
                       <option value="">Select Supplier</option>
-                      {[...new Set(stock.filter((item) => item.Project_ID === selectedProjectId).map((item) => item.Supplier))].map((supplier) => (
+                      {[
+                        ...new Set(
+                          stock
+                            .filter(
+                              (item) => item.Project_ID === selectedProjectId,
+                            )
+                            .map((item) => item.Supplier),
+                        ),
+                      ].map((supplier) => (
                         <option key={supplier} value={supplier}>
                           {supplier}
                         </option>

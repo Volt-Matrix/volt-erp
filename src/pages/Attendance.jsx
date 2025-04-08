@@ -1,20 +1,31 @@
 import "../assets/styles/attendance.css";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { 
-  LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, 
-  PieChart, Pie, Cell, RadialBarChart, RadialBar 
+import {
+  LineChart,
+  Line,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  Legend,
+  ResponsiveContainer,
+  PieChart,
+  Pie,
+  Cell,
+  RadialBarChart,
+  RadialBar,
 } from "recharts";
 
 import SubModuleBar from "../components/SubModuleBar";
 
 const moduleBarData = [
-  {url: "/attendance", text: "Dashboard"},
-  {url: "/leave-request", text: "Leave Request"},
-  {url: "/Manager", text: "Manager"},
-  {url: "/Aoverview", text: "Attendance Overview"},
-  {url:"/History", text: "History"}
-]
+  { url: "/attendance", text: "Dashboard" },
+  { url: "/leave-request", text: "Leave Request" },
+  { url: "/Manager", text: "Manager" },
+  { url: "/Aoverview", text: "Attendance Overview" },
+  { url: "/History", text: "History" },
+];
 
 const data = [
   { month: "Jan", attendance: 85.4 },
@@ -42,7 +53,12 @@ const AttendanceChart = () => {
           <YAxis domain={[80, 100]} tickFormatter={(tick) => `${tick}%`} />
           <Tooltip formatter={(value) => `${value}%`} />
           {/* <Legend /> */}
-          <Line type="monotone" dataKey="attendance" stroke="#8884d8" strokeWidth={2} />
+          <Line
+            type="monotone"
+            dataKey="attendance"
+            stroke="#8884d8"
+            strokeWidth={2}
+          />
         </LineChart>
       </ResponsiveContainer>
     </div>
@@ -73,7 +89,10 @@ const GaugeChart = () => {
           <RadialBar minAngle={15} background clockWise dataKey="value" />
         </RadialBarChart>
       </ResponsiveContainer>
-      <div className="needle" style={{ transform: `rotate(${(percentage / 100) * 180 - 90}deg)` }}></div>
+      <div
+        className="needle"
+        style={{ transform: `rotate(${(percentage / 100) * 180 - 90}deg)` }}
+      ></div>
       <div className="percentage-label">{percentage}%</div>
     </div>
   );
@@ -97,25 +116,27 @@ function Attendance() {
       <SubModuleBar moduleData={moduleBarData} />
 
       <AttendanceChart />
-      
+
       <div className="stat-container">
-      <div className="stats">
-              <p style={{ margin: "0", fontSize: "1em" }}>Leaves Used</p>
-              <p style={{ margin: "0" }}>
-                <span style={{ margin: "0", fontSize: "5em" }}>5</span> days
-              </p>
+        <div className="stats">
+          <p style={{ margin: "0", fontSize: "1em" }}>Leaves Used</p>
+          <p style={{ margin: "0" }}>
+            <span style={{ margin: "0", fontSize: "5em" }}>5</span> days
+          </p>
         </div>
         <div className="stats">
-              <p style={{ margin: "0", fontSize: "1em" }}>Leaves Available</p>
-              <p style={{ margin: "0" }}>
-                <span style={{ margin: "0", fontSize: "5em" }}>7</span> days
-              </p>
+          <p style={{ margin: "0", fontSize: "1em" }}>Leaves Available</p>
+          <p style={{ margin: "0" }}>
+            <span style={{ margin: "0", fontSize: "5em" }}>7</span> days
+          </p>
         </div>
         <div className="stats">
-              <p style={{ margin: "0", fontSize: "1em" }}>Hours Worked (this week)</p>
-              <p style={{ margin: "0" }}>
-                <span style={{ margin: "0", fontSize: "5em" }}>35</span> Hours
-              </p>
+          <p style={{ margin: "0", fontSize: "1em" }}>
+            Hours Worked (this week)
+          </p>
+          <p style={{ margin: "0" }}>
+            <span style={{ margin: "0", fontSize: "5em" }}>35</span> Hours
+          </p>
         </div>
       </div>
 
@@ -145,13 +166,12 @@ function Attendance() {
         </div>
 
         <div className="chart-box">
-          <h4>Performance Level</h4> 
+          <h4>Performance Level</h4>
           <GaugeChart />
         </div>
       </div>
 
       {/* Adding AttendanceChart */}
-      
     </div>
   );
 }

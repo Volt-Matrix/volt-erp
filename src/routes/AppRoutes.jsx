@@ -71,7 +71,6 @@ function AppRoutes() {
             <Route path="/add-task" element={<AddTask />} />
             <Route path="/task-list" element={<TaskList />} />
             <Route path="/contractor-form" element={<ContractorForm />} />
-
             <Route
               path="/work-progress-table"
               element={<WorkProgressTable />}

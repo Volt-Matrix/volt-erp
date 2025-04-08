@@ -5,15 +5,13 @@ import { Link } from "react-router-dom";
 import SubModuleBar from "../components/SubModuleBar";
 
 const moduleBarData = [
-    {url: "/materials", text:"Overview"},
-    {url: "/stock-level", text: "Stock Level"},
-    {url: "/add-new-stock", text: "Add New Stock/Supplier"},
-    {url: "/daily-usage", text: "Daily Material Usage"},
-    {url: "/stock-history", text: "Stock History"},
-    {url: "/cost-analysis", text: "Cost Analysis"},
-  ]
-
-
+  { url: "/materials", text: "Overview" },
+  { url: "/stock-level", text: "Stock Level" },
+  { url: "/add-new-stock", text: "Add New Stock/Supplier" },
+  { url: "/daily-usage", text: "Daily Material Usage" },
+  { url: "/stock-history", text: "Stock History" },
+  { url: "/cost-analysis", text: "Cost Analysis" },
+];
 
 const DailyMaterialUsage = () => {
   const [data, setData] = useState([]);
@@ -35,7 +33,11 @@ const DailyMaterialUsage = () => {
         setData(jsonData);
         if (jsonData.length > 0) {
           setSelectedProject(jsonData[0].Project_ID);
-          setFilteredData(jsonData.filter((item) => item.Project_ID === jsonData[0].Project_ID));
+          setFilteredData(
+            jsonData.filter(
+              (item) => item.Project_ID === jsonData[0].Project_ID,
+            ),
+          );
         }
       })
       .catch((error) => {
@@ -45,7 +47,9 @@ const DailyMaterialUsage = () => {
 
   useEffect(() => {
     if (selectedProject) {
-      setFilteredData(data.filter((item) => item.Project_ID === selectedProject));
+      setFilteredData(
+        data.filter((item) => item.Project_ID === selectedProject),
+      );
     }
   }, [selectedProject, data]);
 
@@ -67,22 +71,27 @@ const DailyMaterialUsage = () => {
     } else {
       bgColor = "#4CAF50"; // Red for high usage
     }
-    return { 
-      width: `${percentage}%`, 
-      backgroundColor: bgColor 
+    return {
+      width: `${percentage}%`,
+      backgroundColor: bgColor,
     }; // Set width and color
   };
 
   return (
     <div className="stock-container">
-    <SubModuleBar moduleData={moduleBarData} />
+      <SubModuleBar moduleData={moduleBarData} />
       <h2>Daily Material Usage</h2>
 
       {/* Project Filter Dropdown */}
       <label>Select Project ID: </label>
-      <select onChange={(e) => setSelectedProject(e.target.value)} value={selectedProject || ""}>
+      <select
+        onChange={(e) => setSelectedProject(e.target.value)}
+        value={selectedProject || ""}
+      >
         {projectIds.map((id) => (
-          <option key={id} value={id}>{id}</option>
+          <option key={id} value={id}>
+            {id}
+          </option>
         ))}
       </select>
 
@@ -99,12 +108,15 @@ const DailyMaterialUsage = () => {
         </thead>
         <tbody>
           {filteredData.map((item, index) => {
-            const usagePercentage = getValidPercentage(item["Material_Usage_%"]);
+            const usagePercentage = getValidPercentage(
+              item["Material_Usage_%"],
+            );
 
             return (
               <tr key={index}>
                 <td>{item.Material}</td>
-                <td>{item.Quantity} units</td> {/* Add units inside the quantity */}
+                <td>{item.Quantity} units</td>{" "}
+                {/* Add units inside the quantity */}
                 <td>₹{item.Cost_per_Unit_INR}</td>
                 <td className="supplier">{item.Supplier}</td>
                 <td>
@@ -113,7 +125,8 @@ const DailyMaterialUsage = () => {
                       className="progress-bar"
                       style={getProgressBarStyle(usagePercentage)}
                     >
-                      <span className="progress-text">{usagePercentage}%</span> {/* Percentage inside */}
+                      <span className="progress-text">{usagePercentage}%</span>{" "}
+                      {/* Percentage inside */}
                     </div>
                   </div>
                 </td>

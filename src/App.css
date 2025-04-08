@@ -1,6 +1,4 @@
 #root {
-  /* margin: 0 auto; */
-  /* padding: 2rem; */
   text-align: center;
 }
 
@@ -46,17 +44,14 @@
   color: rgba(0, 0, 0, 0.4);
   text-decoration-line: underline;
 }
-/* .main-container {  
-  display: flex;
-} */
+
 .main-content {
   display: flex;
   gap: 0.5em;
   width: 100%;
   padding: 0.5em;
-  height: calc(100vh - 69px);
+  height: calc(100vh - 105px);
   flex-grow: 1;
-  /* overflow-x: scroll; */
 }
 .center-content {
   flex-grow: 1;

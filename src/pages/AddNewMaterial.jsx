@@ -54,7 +54,7 @@ const AddNewMaterial = () => {
         ...new Set(
           stock
             .filter((item) => item.Project_ID === selectedId)
-            .map((item) => item.Supplier)
+            .map((item) => item.Supplier),
         ),
       ];
       setSuppliers(filteredSuppliers);
@@ -70,12 +70,12 @@ const AddNewMaterial = () => {
     if (supplier && suppliers.includes(supplier)) {
       const materialsForSupplier = stock.filter(
         (item) =>
-          item.Project_ID === selectedProjectId && item.Supplier === supplier
+          item.Project_ID === selectedProjectId && item.Supplier === supplier,
       );
       setAvailableMaterials(
         materialsForSupplier.length
           ? materialsForSupplier.map((item) => item.Material)
-          : []
+          : [],
       );
     } else {
       setAvailableMaterials([]);
@@ -133,7 +133,7 @@ const AddNewMaterial = () => {
                   ];
                   updatedMaterials[index].filteredMaterials =
                     existingMaterials.filter((mat) =>
-                      mat.toLowerCase().includes(e.target.value.toLowerCase())
+                      mat.toLowerCase().includes(e.target.value.toLowerCase()),
                     );
 
                   setMaterials(updatedMaterials);
@@ -179,7 +179,7 @@ const AddNewMaterial = () => {
               console.log("Supplier:", selectedSupplier);
               console.log(
                 "Materials:",
-                materials.map((m) => m.materialName)
+                materials.map((m) => m.materialName),
               );
               setShowPopup(true);
               setTimeout(() => setShowPopup(false), 3000);
