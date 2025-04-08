@@ -28,7 +28,7 @@ import AddNewStock from "../pages/AddNewStock";
 import AddEmployee from "../pages/AddEmployee";
 import AddTask from "../pages/AddTask";
 import TaskList from "../pages/TaskList";
-import ContractorForm from "../pages/ContractorForm"
+import ContractorForm from "../pages/ContractorForm";
 import WorkProgressTable from "../pages/WorkProgressTable";
 import ContractorWorkProgressTable from "../pages/ContractorWorkProgressTable";
 import StockLevel from "../pages/StockLevel";
@@ -68,12 +68,9 @@ function AppRoutes() {
             <Route path="stock-level" element={<StockLevel />} />
             <Route path="stock-level-temp" element={<StockLevelTemp />} />
             <Route path="/work-progress" element={<WorkProgress />} />
-            <Route
-              path="/add-task"
-              element={<AddTask />}
-            />
-             <Route path="/task-list" element={<TaskList />} />
-             <Route path="/contractor-form" element={<ContractorForm />} />
+            <Route path="/add-task" element={<AddTask />} />
+            <Route path="/task-list" element={<TaskList />} />
+            <Route path="/contractor-form" element={<ContractorForm />} />
 
             <Route
               path="/work-progress-table"
@@ -87,7 +84,7 @@ function AppRoutes() {
             <Route path="/site-visits" element={<SiteVisits />} />
             <Route path="/equipment" element={<Equipment />} />
             <Route path="*" element={<NotFound />} />
-           
+
             <Route path="login" element={<LoginPage />} />
 
             <Route path="History" element={<History />} />
