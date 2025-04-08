@@ -76,10 +76,10 @@ function AppRoutes() {
             <Route path="/site-visits" element={<SiteVisits />} />
             <Route path="/equipment" element={<Equipment />} />
             <Route path="*" element={<NotFound />} />
-            {/* <Route path="trail" element={<NavLayout />}>
+            <Route path="trail" element={<NavLayout />}>
               <Route path="page1" element={<SiteVisits />} />
               <Route path="page2" element={<Equipment />} />
-            </Route> */}
+            </Route>
             <Route path="login" element={<LoginPage />} />
 
             <Route path="History" element={<History />} />
