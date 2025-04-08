@@ -1,11 +1,5 @@
 import React, { useEffect, useContext, useState } from "react";
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  redirect,
-  useLocation,
-} from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "../pages/Home";
 import Help from "../pages/Help";
 import Attendance from "../pages/Attendance";
@@ -39,7 +33,6 @@ import StockHistory from "../pages/StockHistory";
 import AddNewMaterial from "../pages/AddNewMaterial";
 import DailyMaterialUsage from "../pages/DailyMaterialUsage";
 import AddUsedStock from "../pages/AddUsedStock";
-
 
 import ClientLogo from "../components/ClientLogo";
 
