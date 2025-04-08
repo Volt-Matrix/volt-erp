@@ -1,0 +1,130 @@
+/* Main container */
+.Repeat {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 20px;
+}
+
+/* Dashboard Header */
+.Regret {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+/* Title */
+.Rectangle {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* Project Selection Dropdown */
+.Reverse {
+    padding: 8px;
+    font-size: 14px;
+    width: auto;
+    text-align: center;
+}
+
+/* Employee List */
+.Reserve {
+    background: white;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Employee Row */
+.Repair {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+}
+
+.Repair:hover {
+    background-color: #f1f1f1;
+}
+
+/* Employee Name */
+.Respect {
+    font-weight: 500;
+}
+
+/* Battery-Style Indicator */
+.Battery {
+    width: 80px;
+    height: 25px;
+    border: 2px solid black;
+    border-radius: 5px;
+    position: relative;
+    background: #e0e0e0;
+    overflow: hidden;
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.Battery::after {
+    content: "";
+    width: 6px;
+    height: 12px;
+    background: black;
+    position: absolute;
+    top: 50%;
+    right: -8px;
+    transform: translateY(-50%);
+    border-radius: 2px;
+}
+
+/* Battery Fill */
+.BatteryLevel {
+    height: 100%;
+    background: #4caf50;
+    transition: width 0.3s ease-in-out;
+}
+
+/* Larger Battery Bar */
+.large-battery {
+    width: 100px;
+    height: 30px;
+}
+
+/* Different Battery Colors */
+.present-battery .BatteryLevel {
+    background: #4caf50;
+}
+
+.absent-battery .BatteryLevel {
+    background: #f44336;
+}
+
+.leave-used-battery .BatteryLevel {
+    background: #ff9800;
+}
+
+.leave-balance-battery .BatteryLevel {
+    background: #2196f3;
+}
+
+/* Expanded Employee Details */
+.Requirement {
+    background: #f9f9f9;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+.risk {
+    padding: 15px;
+    background-color:#15599d;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    text-align: center;
+    width: 150px;
+    transition: 0.3s;
+    height:50px;
+  }

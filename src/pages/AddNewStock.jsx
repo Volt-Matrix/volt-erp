@@ -1,14 +1,17 @@
 import React, { useState, useEffect } from "react";
 import * as XLSX from "xlsx";
-import "../assets/styles/AddNewStock.css"
+import "../assets/styles/AddNewStock.css";
+import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import SubModuleBar from "../components/SubModuleBar";
+
 
 const moduleBarData = [
   {url: "/materials", text:"Overview"},
   {url: "/stock-level", text: "Stock Level"},
-  {url: "/add-new-stock", text: "Add New Stock"},
-  {url: "/daily-material-usage", text: "Daily Material Usage"},
-  {url: "/supplier-status", text: "Supplier Status"},
+  {url: "/add-new-stock", text: "Add New Stock/Supplier"},
+  {url: "/daily-usage", text: "Daily Material Usage"},
+  {url: "/stock-history", text: "Stock History"},
   {url: "/cost-analysis", text: "Cost Analysis"},
 ]
 
@@ -19,7 +22,8 @@ const AddNewStock = () => {
   const [selectedSupplier, setSelectedSupplier] = useState("");
   const [editableStock, setEditableStock] = useState({});
   const [selectedDate, setSelectedDate] = useState("");
- 
+  const navigate = useNavigate();
+
   useEffect(() => {
     fetch("/data/project_all_materials_updated.xlsx")
       .then((response) => response.arrayBuffer())
@@ -31,49 +35,59 @@ const AddNewStock = () => {
       })
       .catch((error) => console.error("Error loading Excel file:", error));
   }, []);
- 
+
   const handleQuantityChange = (index, newQuantity) => {
     setEditableStock((prev) => ({ ...prev, [index]: newQuantity }));
   };
- 
+
   const handleAddStock = () => {
     console.log("Updated Stock:", editableStock, "Date:", selectedDate);
   };
- 
+
+  const handleClearFilters = () => {
+    setSelectedProjectId("");
+    setSelectedSupplier("");
+    setSelectedDate("");
+  };
+
   const filteredStock = stock.filter(
     (item) =>
       selectedProjectId &&
       item.Project_ID === selectedProjectId &&
       (selectedSupplier ? item.Supplier === selectedSupplier : true)
   );
- 
+
   return (
     <div className="stock-container">
-      
-      <SubModuleBar moduleData={moduleBarData} />
+        
+        <SubModuleBar moduleData={moduleBarData} />
 
-      <h2>Add New Stock Materials</h2>
+      <button className="used-btn" onClick={() => navigate("/used-stock")}>
+        Add Used Stock
+      </button>
+      <button className="new-material-btn" onClick={() => navigate("/add-new-material")}>
+        Add New Material
+      </button>
+
+      <h2>Add New Stock/Supplier</h2>
       <div className="filters">
         <select value={selectedProjectId} onChange={(e) => setSelectedProjectId(e.target.value)}>
           <option value="">Select Project ID</option>
           {[...new Set(stock.map((item) => item.Project_ID))].map((id) => (
-            <option key={id} value={id}>{id}</option>
+            <option key={id} value={id}>
+              {id}
+            </option>
           ))}
         </select>
-        <select value={selectedSupplier} onChange={(e) => setSelectedSupplier(e.target.value)}>
-          <option value="">Select Supplier</option>
-          {[...new Set(stock.filter(item => item.Project_ID === selectedProjectId).map((item) => item.Supplier))].map((supplier) => (
-            <option key={supplier} value={supplier}>{supplier}</option>
-          ))}
-        </select>
+
         <input
           type="date"
           value={selectedDate}
           onChange={(e) => setSelectedDate(e.target.value)}
-          className="date-picker"
+          className="date-picker1"
         />
       </div>
-     
+
       {filteredStock.length > 0 && (
         <>
           <h2>Stock List</h2>
@@ -96,21 +110,34 @@ const AddNewStock = () => {
                       onChange={(e) => handleQuantityChange(index, e.target.value)}
                     >
                       {[...Array(101).keys()].map((qty) => (
-                        <option key={qty} value={qty}>{qty}</option>
+                        <option key={qty} value={qty}>
+                          {qty}
+                        </option>
                       ))}
                     </select>
                   </td>
                   <td>{item.Unit}</td>
-                  <td>{item.Supplier}</td>
+                  <td>
+                    <select
+                      value={selectedSupplier}
+                      onChange={(e) => setSelectedSupplier(e.target.value)}
+                    >
+                      <option value="">Select Supplier</option>
+                      {[...new Set(stock.filter((item) => item.Project_ID === selectedProjectId).map((item) => item.Supplier))].map((supplier) => (
+                        <option key={supplier} value={supplier}>
+                          {supplier}
+                        </option>
+                      ))}
+                    </select>
+                  </td>
                 </tr>
               ))}
             </tbody>
           </table>
-          <button className="add-stock-btn" onClick={handleAddStock}>Add Stock</button>
         </>
       )}
     </div>
   );
 };
- 
+
 export default AddNewStock;

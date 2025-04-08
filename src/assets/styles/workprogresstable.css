@@ -10,7 +10,7 @@
 }
 
 select, input {
-  width:170px !important;
+  width:170px;
   border-radius:5px
 }
 
