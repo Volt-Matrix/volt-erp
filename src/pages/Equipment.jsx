@@ -34,10 +34,8 @@ export default function App() {
   };
 
   return (
-    <div className="dashboard">
-      <header>
-        <h1>Equipment Management</h1>
-        <div className="filters">
+    <div className="eq-dashboard-content">
+        <div className="filter-options-container">
           <select 
             value={filters.status} 
             onChange={(e) => setFilters({...filters, status: e.target.value})}
@@ -59,30 +57,29 @@ export default function App() {
             <option value="Excavator">Excavator</option>
           </select>
         </div>
-      </header>
 
-      <div className="stats-grid">
-        <div className="stat-card total">
+      <div className="stats-container">
+        <div className="stat-card-eq total">
           <h3>Total Equipment</h3>
           <div className="stat-value">{stats.total}</div>
         </div>
-        <div className="stat-card in-use">
+        <div className="stat-card-eq in-use">
           <h3>In Use</h3>
           <div className="stat-value">{stats.inUse}</div>
         </div>
-        <div className="stat-card maintenance">
+        <div className="stat-card-eq maintenance">
           <h3>Under Maintenance</h3>
           <div className="stat-value">{stats.maintenance}</div>
         </div>
-        <div className="stat-card idle">
+        <div className="stat-card-eq idle">
           <h3>Idle</h3>
           <div className="stat-value">{stats.idle}</div>
         </div>
       </div>
 
-      <div className="main-content">
+      <div className="eq-overview-content">
         <section className="equipment-list">
-          <h2>Equipment Overview</h2>
+          <h2>Equipment Master List</h2>
           <div className="table-wrapper">
             <table>
               <thead>
@@ -122,7 +119,7 @@ export default function App() {
               .filter(item => item.Status === 'Maintenance')
               .slice(0, 5)
               .map(item => (
-                <div key={item.Equipment_ID} className="alert-card">
+                <div key={item.Equipment_ID} className="alert-card-eq-maintenance">
                   <div className="alert-header">
                     <span className="alert-icon">⚠️</span>
                     <span>{item.Equipment_ID}</span>
