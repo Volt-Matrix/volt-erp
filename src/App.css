@@ -68,6 +68,15 @@
   justify-content: space-between;
   align-items: center;
 }
+
+.top-header > *:first-child {
+  margin-left: 20px;
+}
+
+.top-header > *:last-child {
+  margin-right: 20px;
+}
+
 .logo-container {
   display: flex;
   flex-direction: row;
