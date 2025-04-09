@@ -189,20 +189,20 @@ export default function Equipment() {
       {activeTab === 'dashboard' && (
         <div className="dashboard-content">
           {/* Stats Grid */}
-          <div className="stats-grid">
-            <div className="stat-card total">
+          <div className="stats-container">
+            <div className="stat-card-eq total">
               <h3>Total Equipment</h3>
               <p>{equipmentStats.total}</p>
             </div>
-            <div className="stat-card in-use">
+            <div className="stat-card-eq in-use">
               <h3>In Use</h3>
               <p>{equipmentStats.inUse}</p>
             </div>
-            <div className="stat-card maintenance danger">
+            <div className="stat-card-eq maintenance danger">
               <h3>Under Maintenance</h3>
               <p>{equipmentStats.maintenance}</p>
             </div>
-            <div className="stat-card idle danger">
+            <div className="stat-card-eq idle">
               <h3>Idle Equipment</h3>
               <p>{equipmentStats.idle}</p>
             </div>
