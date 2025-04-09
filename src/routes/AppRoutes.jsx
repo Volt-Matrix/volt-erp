@@ -39,7 +39,6 @@ import AddUsedStock from "../pages/AddUsedStock";
 
 import ClientLogo from "../components/ClientLogo";
 
-import StockLevelTemp from "../pages/SL-temp";
 import NavLayout from "../components/NavLayout/NavLayout";
 import LoginPage from "../pages/Login";
 import { AuthContext } from "../context/AuthContext";
@@ -66,7 +65,6 @@ function AppRoutes() {
             <Route path="/stock-history" element={<StockHistory />} />
             <Route path="/daily-usage" element={<DailyMaterialUsage />} />
             <Route path="stock-level" element={<StockLevel />} />
-            <Route path="stock-level-temp" element={<StockLevelTemp />} />
             <Route path="/work-progress" element={<WorkProgress />} />
             <Route
               path="/add-task"
