@@ -133,7 +133,7 @@ export default function Equipment() {
   };
 
   return (
-    <div className="dashboard">
+    <div className="">
       <header className="dashboard-header">
         <nav className="tab-navigation">
           <button 
