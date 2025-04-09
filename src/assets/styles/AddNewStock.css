@@ -1,110 +1,137 @@
-/* .stock-container {
-    max-width: 1000px;
-    margin: auto;
-    padding: 20px;
-    background: #f8f9fa;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    font-family: Arial, sans-serif;
-  } */
- 
-  h2 {
-    text-align: center;
-    color: #333;
+.stock-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+}
+
+h2 {
+  margin-left: -10px;
+  color: #333;
+}
+
+.filters {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.filters select,
+.filters .date-picker1 {
+  width: 30%;
+  padding: 8px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background: #fff;
+  cursor: pointer;
+  margin-right: 180px;
+}
+
+.stock-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+}
+
+.stock-table th,
+.stock-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+}
+
+.stock-table th {
+  background: #007bff;
+  color: #fff;
+}
+
+.stock-table select {
+  width: 100%;
+  padding: 5px;
+}
+
+.new-material-btn{
+  position: absolute;
+      top: 170px;
+      right: 100px;
+      background-color: #414241;
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    
+    .new-material-btn:hover {
+      background-color: #0056b3;
+
+}
+.used-btn{
+    position: absolute;
+        top: 220px;
+        right: 100px;
+        background-color: #414241;
+        color: white;
+        border: none;
+        padding: 8px 12px;
+        font-size: 16px;
+        border-radius: 5px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+      }
+      
+      .new-material-btn:hover {
+        background-color: #0056b3;
 
   }
- 
+
+.add-stock-btn {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  margin-top: 15px;
+  background: #28a745;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: 0.3s ease-in-out;
+}
+
+.add-stock-btn:hover {
+  background: #218838;
+}
+
+.date-picker {
+  width: 30%;
+  padding: 5px;
+  font-size: 16px;
+  margin-left: -150px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background: #fff;
+}
+
+@media (max-width: 768px) {
   .filters {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 10px;
-    flex-wrap: wrap;
+    flex-direction: column;
   }
- 
+
   .filters select,
   .filters .date-picker {
-    width: 30%;
-    padding: 8px;
-    font-size: 16px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    background: #fff;
-    cursor: pointer;
-  }
- 
-  .stock-table {
     width: 100%;
-    border-collapse: collapse;
-    background: #fff;
+    margin-bottom: 10px;
   }
- 
-  .stock-table th,
-  .stock-table td {
-    border: 1px solid #ddd;
-    padding: 10px;
-    text-align: left;
-  }
- 
-  .stock-table th {
-    background: #8eb8e6;
-    color: #fff;
-  }
- 
-  .stock-table select {
-    width: 100%;
-    padding: 5px;
-  }
- 
-  .add-stock-btn {
-    display: block;
-    width: 100%;
-    padding: 12px;
-    margin-top: 15px;
-    background: #69cb80;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: 0.3s ease-in-out;
-  }
- 
-  .add-stock-btn:hover {
-    background: #218838;
-  }
- 
-  .date-picker {
-    width: 30%;
-    padding: 8px;
-    font-size: 16px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    background: #fff;
-  }
- 
-  @media (max-width: 768px) {
-    .filters {
-      flex-direction: column;
-    }
- 
-    .filters select,
-    .filters .date-picker {
-      width: 100%;
-      margin-bottom: 10px;
-    }
-    }
-
-/* .submodule-option-row {
-    display:flex;
-    flex-direction: row;
-    justify-content: flex-start;
-} */
-
-.submodule-option-row {
-  display: "flex";
-  flex-direction: "row";
-  justify-content: "flex-start";
-  border: "1px solid black";
-  border-radius: "7px";
-  background-color: "#00b4d8";
 }

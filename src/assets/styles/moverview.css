@@ -1,0 +1,127 @@
+.leave-overview {
+    padding: 20px;
+    text-align: center;
+}
+
+/* Month Scroll */
+.month-scroll {
+    display: flex;
+    overflow-x: auto;
+    gap: 20px;
+    padding: 10px;
+    background: #f5f5f5;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.month-item {
+    cursor: pointer;
+    padding: 8px 15px;
+    border-radius: 5px;
+    background: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.month-item.active {
+    background: #007bff;
+    color: white;
+}
+
+/* Summary Section */
+.summary {
+    display: flex;
+    gap: 30px;
+    justify-content: space-between;
+    margin: 20px 0;
+}
+
+/* Equal Sized Cards */
+.card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 50%; /* Ensures both cards are equal in size */
+    min-height: 400px; /* Ensures same height */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Pie Chart */
+.chart-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.center-text {
+    position: absolute;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Legend */
+.legend {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.color-box {
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+    border-radius: 3px;
+}
+
+/* Employee Table */
+.employee-card {
+    text-align: center;
+}
+
+.employee-table-container {
+    max-height: 300px;
+    overflow-y: auto;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    width: 100%;
+}
+
+.employee-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.employee-table th, .employee-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+.employee-table thead {
+    background: #f4f4f4;
+    position: sticky;
+    top: 0;
+}
+
+/* Bar Chart */
+.chart {
+    margin-top: 20px;
+}
+
+.chart h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}

@@ -1,0 +1,105 @@
+.biometric-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    background: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    text-align: center;
+    position: relative;
+  }
+  
+  /* Back Button */
+  .back-buttons {
+    /* position: absolute; */
+    top: -70px;
+    left: -40px;
+    background: #15599d;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    float: left;
+  }
+  
+  .back-button:hover {
+    background: #0d3a6e;
+  }
+  
+  h2 {
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 24px;
+  }
+  
+  .filter-container {
+    margin-bottom: 20px;
+  }
+  
+  .filter-container label {
+    font-size: 16px;
+    font-weight: bold;
+    margin-right: 10px;
+    color: #555;
+  }
+  
+  .filter-container select {
+    padding: 8px 12px;
+    font-size: 14px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background: #f9f9f9;
+    cursor: pointer;
+  }
+  
+  .biometric-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  .biometric-table th,
+  .biometric-table td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: center;
+  }
+  
+  .biometric-table th {
+    background: #15599d;
+    color: white;
+    font-weight: bold;
+  }
+  
+  .biometric-table tr:nth-child(even) {
+    background: #f2f2f2;
+  }
+  
+  .biometric-table tr:hover {
+    background: #ddd;
+  }
+  
+  .biometric-table td {
+    color: #333;
+  }
+  
+  @media (max-width: 600px) {
+    .biometric-container {
+      width: 90%;
+      padding: 15px;
+    }
+  
+    .filter-container select {
+      width: 100%;
+    }
+  
+    .biometric-table th,
+    .biometric-table td {
+      font-size: 14px;
+      padding: 10px;
+    }
+  
+  }
+  
