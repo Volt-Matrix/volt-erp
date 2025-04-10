@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import * as XLSX from "xlsx";
 import { useNavigate } from "react-router-dom";
-import "../assets/styles/SL-temp.css";
+import "../assets/styles/stocklevel.css";
 import SubModuleBar from "../components/SubModuleBar";
 
 
@@ -63,19 +63,22 @@ const StockLevelTemp = () => {
       
     
 
-    <div className="container">
+    <div>
     <SubModuleBar moduleData={moduleBarData} />
  
-      <h4 className="name">Stock Analysis by Project</h4>
-      <label className="labs">Select Project ID: </label>
-      <select className="dropdown2" onChange={(e) => setSelectedProject(e.target.value)} value={selectedProject || ""}>
+      <h3>Stock Analysis by Project</h3>
+
+      <div className="project-selector-materials">
+      <label className="lab">Select Project: </label>
+      <select className="dropdowns" onChange={(e) => setSelectedProject(e.target.value)} value={selectedProject || ""}>
         {projectIds.map((id) => (
           <option key={id} value={id}>{id}</option>
         ))}
       </select>
+      </div>
  
       {/* Grid Layout for Cards */}
-      <div className="materials-container">
+      <div className="materials-stocklevel-container">
         {filteredData.map((item, index) => {
           const imagePath = images[index % images.length]; // Cycle through images
           return (

@@ -35,9 +35,9 @@ const Materials = () => {
 
 
   const getAlertLevel = (quantity) => {
-    if (quantity < 400) return { level: "Critical", color: "rgb(250, 86, 64)" };
-    if (quantity < 450) return { level: "High", color: "rgb(52, 100, 173)" };
-    if (quantity < 500) return { level: "Medium", color: "rgb(200, 250, 64)" };
+    if (quantity < 400) return { level: "Critical", color: "rgb(255, 106, 86)" };
+    if (quantity < 450) return { level: "High", color: "rgb(146, 190, 255)" };
+    if (quantity < 500) return { level: "Medium", color: "rgb(137, 119, 0)" };
     return null;
   };
   
@@ -88,20 +88,22 @@ const Materials = () => {
     updateAggregatedData(data, selectedProject);
   }, [selectedProject, data]);
 
-  const projectIds = ["All", ...new Set(data.map((item) => item.Project_ID))];
+  const projectIds = ["All Projects", ...new Set(data.map((item) => item.Project_ID))];
 
   return (
-    <div className="container">
+    <div>
      <SubModuleBar moduleData={moduleBarData} />
-      <h2>Material Analysis by Project</h2>
-      <label className="lab">Select Project ID: </label>
+
+     <div className="project-selector-materials">
+      <label className="lab">Select Project: </label>
       <select className="dropdowns" onChange={(e) => setSelectedProject(e.target.value)} value={selectedProject || ""}>
         {projectIds.map((id) => (
           <option key={id} value={id}>{id}</option>
         ))}
       </select>
-      
-      <div className="dashboard">
+      </div>
+
+      <div className="materials-overview-container">
       <div className="chart-section">
           <h3>Total Quantity by Material for Selected Project</h3>
           <ResponsiveContainer width="100%" height={350}>
@@ -120,8 +122,11 @@ const Materials = () => {
             </BarChart>
           </ResponsiveContainer>
         </div>
+
         <div className="alert-card">
+          
           <h3>Stock Alerts</h3>
+          
           <div className="alert-buttons">
             {['Critical', 'Medium', 'High'].map(level => (
               <button key={level} className="alert-button" onClick={() => setSelectedAlertLevel(level)}>
@@ -129,8 +134,9 @@ const Materials = () => {
               </button>
             ))}
           </div>
+
           {selectedAlertLevel && (
-            <div className="alert-details">
+            <div className="alert-details-list">
               {alerts.filter(alert => alert.level === selectedAlertLevel).map((alert, index) => (
                 <div key={index} className="alert-detail" style={{ backgroundColor: alert.color }}>
                   <h4>{alert.level} Alert</h4>

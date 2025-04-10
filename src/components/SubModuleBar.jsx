@@ -5,9 +5,10 @@ const barStyles = {
     display: "flex",
     flexDirection: "row",
     justifyContent: "flex-start",
-    border: "1px solid #a98467",
+    marginRight:"10px",
+    border: "1px solid #b5c99a",
     borderRadius: "7px",
-    backgroundColor: "#C4A389",//"#a98467"
+    backgroundColor: "#cfe1b9",//"#a98467"
 }
 
 function SubModuleBar (props) {

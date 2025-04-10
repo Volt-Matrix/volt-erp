@@ -13,21 +13,6 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* 
-body {
-  margin: 0;
-  padding: 10px;
-  margin-top: 60px;
-  margin-left: 185px;
-  width: 80vw;
-  min-height: 100vh;
-  overflow-x: hidden;;
-} */
-
-html {
-  background-color: #e78433;
-}
-
 button {
   border-radius: 8px;
   border: 1px solid transparent;
@@ -47,7 +32,6 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-/* @media (prefers-color-scheme: light) { */
 :root {
   color: #213547;
   background-color: #deedda; /* #d8eff4 */ /* caf0f8 */
