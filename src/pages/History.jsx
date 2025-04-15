@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import * as XLSX from "xlsx";
 import { useNavigate } from "react-router-dom"; // For navigation
-import "../assets/styles/history.css";
+import "../assets/styles/History.css";
 
 const moduleBarData = [
   {url: "/attendance", text: "Dashboard"},
