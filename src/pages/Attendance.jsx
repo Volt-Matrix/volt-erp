@@ -144,10 +144,10 @@ function Attendance() {
           </ResponsiveContainer>
         </div>
 
-        <div className="chart-box">
+        {/* <div className="chart-box">
           <h4>Performance Level</h4> 
           <GaugeChart />
-        </div>
+        </div> */}
       </div>
 
       {/* Adding AttendanceChart */}
