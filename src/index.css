@@ -12,6 +12,11 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+*{
+  box-sizing: border-box;
+  margin: 0px;
+  padding:0px;
+}
 
 button {
   border-radius: 8px;
@@ -42,4 +47,9 @@ a:hover {
 button {
   background-color: #f9f9f9;
 }
-/* } */
+/* Common */
+pg-bg-clr{
+}
+bt-pr-padding{
+  padding: 10px;
+}

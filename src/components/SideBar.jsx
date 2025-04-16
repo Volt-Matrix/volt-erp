@@ -13,16 +13,9 @@ import {
 } from "react-icons/md";
 const styles = {
   sidebar: {
-    // width: "175px",
-    // height: "100vh",
     padding: "10px",
-    // background: "#e5e5e5",
-    // border: "2px solid rgba(0,0,0,0.4)",
     borderRadius: "10px",
-    // position: "fixed",
     display: "flex",
-    // flexGrow: 1,
-
     flexDirection: "column",
     gap: "10px",
     boxShadow: "4px 3px 10px rgba(0,0,0,0.1)",

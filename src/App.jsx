@@ -15,11 +15,11 @@ function App() {
 
   useEffect(() => {
     console.log("Login state---", logginIn, location.pathname == "/login");
-    if (location.pathname == "/login" && logginIn) {
-      navigate("/trail/page1");
-    } else {
-      navigate("/login");
-    }
+    // if (location.pathname == "/login" && logginIn) {
+    //   navigate("/trail/page1");
+    // } else {
+    //   navigate("/login");
+    // }
   }, [logginIn]);
 
   return (
