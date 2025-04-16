@@ -9,6 +9,7 @@ const barStyles = {
     border: "1px solid #b5c99a",
     borderRadius: "7px",
     backgroundColor: "#cfe1b9",//"#a98467"
+    flexWrap:"wrap"
 }
 
 function SubModuleBar (props) {
